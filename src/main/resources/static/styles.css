@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d6d6d6;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 50%;
+    background-color: #ffffff;
+    border-radius: 30px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #2c3e50;
+}
+
+/* GRUPO DE INPUTS (ex.: Código, Data, Taxa, Valor) */
+.input-group {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Cada bloco interno deve ocupar igualmente o espaço */
+.input-group>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inputs dentro do grupo */
+.input-group input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    height: 45px;
+}
+
+/* CONTAINER DE VENCIMENTO */
+.input-vencimento {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+    background-color: #ececec;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-top: 0;
+}
+
+/* O primeiro elemento (div com label e data) expande para ocupar o máximo */
+.input-vencimento>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input de data dentro do vencimento */
+.input-vencimento>div input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    height: 45px;
+}
+
+/* Input de porcentagem ocupa o espaço restante */
+.input-vencimento input[name="porcentagem[]"] {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    height: 45px;
+    width: auto;
+    margin-top: 42px;
+}
+
+/* BOTÕES DE ADICIONAR/REMOVER VENCIMENTO */
+#addVencimento,
+.removeVencimento {
+    width: 60px;
+    height: 45px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 42px;
+}
+
+#addVencimento {
+    background-color: #3ab463;
+}
+
+.removeVencimento {
+    background-color: #ff3838;
+}
+
+/* Estilização geral para inputs e botões fora dos grupos */
+input,
+button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.container input::placeholder {
+    color: #aaa;
+}
+
+/* Botão de cadastrar */
+#cadastrar button {
+    background-color: #4caf50;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#cadastrar button:hover {
+    background-color: #206136;
+}
+
+/* Botão de listar */
+#btnListar {
+    position: absolute;
+    padding: 10px;
+    background-color: #3ab463;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 30px;
+    top: 150px;
+    left: 100px;
+}
+
+#btnListar:hover {
+    background-color: #206136;
+}

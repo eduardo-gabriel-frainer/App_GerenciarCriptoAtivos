@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de CriptoAtivo</title>
+    <link rel="stylesheet" href="/styles.css?v=2" />
+    <!-- Adicionando a fonte Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Cadastrar Operação de CriptoAtivo</h1>
+
+    <a id="btnListar" href="listar">Listar CriptoAtivos</a>
+
+    <div class="container">
+      <h2>Cadastrar Operação</h2>
+
+      <form action="/cadastro" method="POST">
+        <div class="input-group">
+          <div>
+            <label for="codigo">Código do criptoativo</label>
+            <input id="codigo" name="codigo" type="text" required />
+          </div>
+          <div>
+            <label for="datainicio">Data Aplicação</label>
+            <input id="datainicio" name="datainicio" type="date" required />
+          </div>
+        </div>
+
+        <!-- Grupo de inputs lado a lado -->
+        <div class="input-group">
+          <div>
+            <label for="taxa">Taxa anual %</label>
+            <input id="taxa" name="taxa" type="number" step="0.01" required />
+          </div>
+          <div>
+            <label for="valor">Valor Investido</label>
+            <input id="valor" name="valor" type="text" required />
+          </div>
+        </div>
+
+        <!-- Container para adicionar múltiplos vencimentos -->
+        <div id="vencimentosContainer">
+          <div class="input-vencimento">
+            <div>
+              <label for="vencimento">Vencimento</label>
+              <input name="vencimento[]" type="date" required />
+            </div>
+
+            <input name="porcentagem[]" type="number" step="0.01" placeholder="%" required />
+
+            <button id="addVencimento" type="button">+</button>
+          </div>
+        </div>
+
+        <div id="cadastrar">
+          <button type="submit">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById('addVencimento').addEventListener('click', function () {
+        const container = document.getElementById('vencimentosContainer')
+      
+        // Criando um novo grupo de vencimento
+        const novoVencimento = document.createElement('div')
+        novoVencimento.classList.add('input-vencimento')
+      
+        novoVencimento.innerHTML = `
+                                                                                                                                                          <div>
+                                                                                                                                                            <label>Vencimento</label>
+                                                                                                                                                            <input name="vencimento[]" type="date" required />
+                                                                                                                                                          </div>
+                                                                                                                                                          <input name="porcentagem[]" type="number" step="0.01" placeholder="%" required />
+                                                                                                                                                          <button type="button" class="removeVencimento">-</button>
+                                                                                                                                                        `
+      
+        container.appendChild(novoVencimento)
+      
+        // Adiciona funcionalidade de remover vencimento
+        novoVencimento.querySelector('.removeVencimento').addEventListener('click', function () {
+          novoVencimento.remove()
+        })
+      })
+      
+      document.getElementById('valor').addEventListener('input', function (event) {
+        let value = event.target.value.replace(/\D/g, '') // Remove qualquer caractere não numérico
+        value = (value / 100).toFixed(2) // Divide por 100 e formata com 2 casas decimais
+      
+        // Adiciona ponto como separador de milhar e vírgula como separador decimal
+        event.target.value = 'R$ ' + value.replace(/\B(?=(\d{3})+(?!\d))/g, '.').replace('.', '.')
+      })
+      
+      function validarPorcentagens() {
+        const porcentagens = document.getElementsByName('porcentagem[]')
+        let soma = 0
+      
+        for (let i = 0; i < porcentagens.length; i++) {
+          soma += parseFloat(porcentagens[i].value) || 0
+        }
+      
+        soma = parseFloat(soma.toFixed(2)) // Arredonda para evitar imprecisão
+      
+        console.log('A soma das porcentagens é ' + soma)
+      
+        if (soma !== 100) {
+          alert('A soma das porcentagens deve ser 100%.')
+          return false
+        }
+      
+        return true
+      }
+      
+      document.querySelector('form').addEventListener('submit', function (event) {
+        if (!validarPorcentagens()) {
+          event.preventDefault() // Impede o envio se as porcentagens não forem 100
+        } else {
+          const valorField = document.getElementById('valor')
+      
+          // Remove "R$", remove os pontos como separadores de milhar, mas mantém o ponto decimal
+          let valor = valorField.value
+            .replace('R$', '') // Remove "R$"
+            .replace(/\.(?=\d{3})/g, '') // Remove o ponto separador de milhar
+            .replace(',', '.') // Substitui a vírgula por ponto
+      
+          // Atualiza o campo com o valor formatado corretamente (ex: "111.0" ou "0.11")
+          valorField.value = valor
+        }
+      })
+    </script>
+  </body>
+</html>

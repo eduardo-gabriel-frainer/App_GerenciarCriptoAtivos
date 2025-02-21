@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listar CriptoAtivos</title>
+    <link rel="stylesheet" href="/stylesListar.css?v=2" />
+    <!-- Adicionando a fonte Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Listar Operação de CriptoAtivo</h1>
+
+    <a id="btnCadastro" href="cadastro">Cadastrar CriptoAtivos</a>
+    
+    <form action="#" th:action="@{/pesquisar-por-data}" method="get">
+      <div class="container-pesquisa">
+          <div>
+              <label for="pesquisaInicial">Data Inicial</label>
+              <input id="pesquisaInicial" type="date" name="inicio" />
+          </div>
+  
+          <div>
+              <label for="pesquisaFinal">Data Final</label>
+              <input id="pesquisaFinal" type="date" name="fim" />
+          </div>
+  
+          <button type="submit">Pesquisar</button>
+      </div>
+  </form>
+
+  <input id="resultadoFinalPesquisa" type="text" 
+       th:value="${#numbers.formatDecimal(valorFuturo, 1, 'COMMA', 2, 'POINT')}" readonly>
+
+
+    <div class="container">
+        <div class="container-list">
+            <!-- Iterar sobre a lista de operações -->
+            <div th:each="cripto : ${criptos}" class="card">
+              <p><strong>Código:</strong> <span th:text="${cripto.codigo}"></span></p>
+              <p><strong>Taxa:</strong> <span th:text="${cripto.taxa}"></span></p>
+              <p><strong>Valor:</strong> R$ <span th:text="${cripto.valor}"></span></p>
+              <p><strong>Data Inicial:</strong> <span th:text="${#temporals.format(cripto.datainicio, 'dd/MM/yyyy')}"></span></p>
+              <p><strong>Vencimento:</strong> <span th:text="${#temporals.format(cripto.vencimento, 'dd/MM/yyyy')}"></span></p>
+              <p><strong>Porcentagem:</strong> <span th:text="${cripto.porcentagem}"></span>%</p>
+              <p><strong>Valor Futuro:</strong> R$ <span th:text="${#numbers.formatDecimal(cripto.valorFuturo, 1, 2, 'COMMA')}"></span></p>
+
+              <div class="acao">
+              <form th:action="@{/deletar/{id}(id=${cripto.id})}" method="post">
+                <button type="submit" onclick="return confirm('Tem certeza que deseja deletar esta Cripto?');" class="del">Deletar</button>
+              </form>
+              <a th:href="@{/editar/{id}(id=${cripto.id})}">
+                <button type="button" class="edit">Editar</button>
+              </a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

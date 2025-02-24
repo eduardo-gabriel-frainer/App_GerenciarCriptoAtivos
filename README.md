@@ -1,36 +1,55 @@
-# App Cadastrar Renda Passiva de CriptoAtivos
+# 📌 App Cadastrar Renda Passiva de Criptoativos  
 
-O sistema foi desenvolvido com Java e foi projetado para facilitar o registro e a organização de criptoativos, através dele cocê pode cadastrar seus vencimentos de criptoativos melhorando a sua organização.
+O sistema foi desenvolvido em **Java** com **Spring Boot** e tem como objetivo facilitar o registro e organização dos seus criptoativos. Com ele, você pode cadastrar seus vencimentos, garantindo um melhor controle financeiro e auxiliando na gestão do **Imposto de Renda**.  
 
-# Linguagens e tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas  
 
-*  Java
-*  Spring boot
-*  Html
-*  Css
-*  JavaScript
-*  MySql
-*  Jpa Hibernate
-*  Thymeleaf
+- **Java**  
+- **Spring Boot**  
+- **HTML**  
+- **CSS**  
+- **JavaScript**  
+- **MySQL**  
+- **JPA/Hibernate**  
+- **Thymeleaf**  
 
-  <hr>
+---  
 
-  ## Fotos do Sistema
+## 📸 Capturas de Tela  
 
-  ![image](https://github.com/user-attachments/assets/57220677-c128-4be7-b40f-2fd6c68b26e1)
-  <br>
-  Tela Principal de Cadastro, possui todas as verificações nos campos.
+### 📌 Tela Principal de Cadastro  
+Possui todas as verificações nos campos.  
+![image](https://github.com/user-attachments/assets/57220677-c128-4be7-b40f-2fd6c68b26e1)  
 
-  ![image](https://github.com/user-attachments/assets/43701a13-2da3-4593-b147-2fa0079cbb77)
-  <br>
-  Exemplo de Cadastro.
+### ✅ Exemplo de Cadastro  
+![image](https://github.com/user-attachments/assets/43701a13-2da3-4593-b147-2fa0079cbb77)  
 
-  ![image](https://github.com/user-attachments/assets/423dd083-78cf-43a1-8b94-2c5260b27e39)
-  <br>
-  Quando cadatrado as informações vão para a tela de Listar. A tela possui ações como deletar, editar e um campo para efetuar uma busca usando as datas.
+### 📋 Tela de Listagem  
+Após o cadastro, as informações aparecem na tela de listagem. Aqui é possível **editar, excluir** e **buscar registros** por data.  
+![image](https://github.com/user-attachments/assets/423dd083-78cf-43a1-8b94-2c5260b27e39)  
 
-  ![image](https://github.com/user-attachments/assets/7bc94b26-cdba-4e3e-8f4d-fde766ed06d1)
-  <br>
-  Por exemplo você consegue ver quanto dinheiro vai vencer em tal periodo para pagar o imposto de Renda.
+### 📊 Planejamento Financeiro  
+A aplicação permite visualizar **quanto dinheiro será recebido em determinado período**, facilitando o cálculo do **Imposto de Renda**.  
+![image](https://github.com/user-attachments/assets/7bc94b26-cdba-4e3e-8f4d-fde766ed06d1)  
 
+---  
 
+## Como Rodar a Aplicação
+
+- Clone o repositório para sua máquina.  
+- Crie a tabela no MySQL utilizando o script disponibilizado no código.  
+- Se necessário, ajuste a senha do banco de dados no arquivo application.properties.  
+- Execute a aplicação e ela será aberta automaticamente no seu navegador padrão.
+
+<hr>
+
+### ⚠️ Importante
+
+O sistema ainda está em desenvolvimento e pode necessitar de melhorias em diversas áreas, como:  
+
+- 🔒 Segurança e proteção de dados  
+- ⚡ Otimização de desempenho  
+- 🎨 Aprimoramento da interface e usabilidade  
+- 🐛 Correção de possíveis bugs  
+
+Contribuições e sugestões são bem-vindas! 🚀  

@@ -1,0 +1,16 @@
+CREATE DATABASE CriptoVecimentos;
+
+USE CriptoVecimentos;
+
+CREATE TABLE cripto(
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+codigo VARCHAR(255) NOT NULL,
+datainicio VARCHAR(255) NOT NULL,
+taxa FLOAT NOT NULL,
+valor DECIMAL(10, 2) NOT NULL,
+vencimento VARCHAR(255) NOT NULL,
+porcentagem FLOAT NOT NULL,
+valor_futuro Double
+);
+
+SELECT * FROM cripto;     

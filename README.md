@@ -32,6 +32,11 @@ Após o cadastro, as informações aparecem na tela de listagem. Aqui é possív
 A aplicação permite visualizar **quanto dinheiro será recebido em determinado período**, facilitando o cálculo do **Imposto de Renda**.  
 ![image](https://github.com/user-attachments/assets/7bc94b26-cdba-4e3e-8f4d-fde766ed06d1)  
 
+### 📋 Tela editar 
+Quando o botão editar é pressionado, o programa direciona para a tela de editar com todos os campos preenchidos.
+![image](https://github.com/user-attachments/assets/d6b777a5-bf7b-40ad-936d-45b3357d9168)
+
+
 ---  
 
 ## Como Rodar a Aplicação
